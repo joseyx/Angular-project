@@ -1,0 +1,9 @@
+.card {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.container {
+  height: calc(100vh - 50px); /* adjust based on navbar height */
+  margin-top: -50px; /* matches navbar height */
+}

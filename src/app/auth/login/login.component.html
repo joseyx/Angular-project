@@ -1,0 +1,80 @@
+<app-test></app-test>
+<div class="">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow">
+      <h2 class="card-title text-center">Inicio de sesion</h2>
+      <form [formGroup]="applyForm" (submit)="submitLogin()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Ingrese su email"
+            formControlName="email"
+            required=""
+          />
+          <div
+            *ngIf="
+              applyForm.get('email')?.invalid &&
+              (applyForm.get('email')?.dirty || applyForm.get('email')?.touched)
+            "
+            class="text-warning form-text"
+          >
+            <ul>
+              <li *ngIf="applyForm.get('email')?.errors?.['required']">
+                El email es requerido.
+              </li>
+              <li *ngIf="applyForm.get('email')?.errors?.['email']">
+                El email debe ser valido.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Constraseña</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Ingrese su contraseña"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              applyForm.get('password')?.invalid &&
+              (applyForm.get('password')?.dirty ||
+                applyForm.get('password')?.touched)
+            "
+            class="text-warning form-text"
+          >
+            <ul>
+              <li *ngIf="applyForm.get('password')?.errors?.['required']">
+                La contraseña es requerida.
+              </li>
+              <li *ngIf="applyForm.get('password')?.errors?.['minlength']">
+                La contraseña debe superar los 6 caracteres.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          Iniciar Sesion
+        </button>
+        <div class="text-center mt-3">
+          <p>
+            No estas registrado?
+            <a [routerLink]="['/register']" class="text-decoration-none"
+              >Registrarse</a
+            >
+          </p>
+          <a [routerLink]="['/forgot-password']" class="text-decoration-none"
+            >Se te olvido la constraseña?</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
