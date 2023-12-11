@@ -43,7 +43,11 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/register']">Registrarse</a>
           </li>
-          } @else {
+          } @else { @if (isAdmin) {
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['dashboard']">Dashboard</a>
+          </li>
+          }
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/']" (click)="logout()"
               >Cerrar Sesion</a
