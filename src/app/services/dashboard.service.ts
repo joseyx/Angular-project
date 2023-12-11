@@ -6,4 +6,9 @@ import { AxiosService } from './axios.service';
 })
 export class DashboardService {
   constructor(private axiosService: AxiosService) {}
+
+  async getUsers() {
+    const response = await this.axiosService.get('dashboard/users');
+    return response.data;
+  }
 }
