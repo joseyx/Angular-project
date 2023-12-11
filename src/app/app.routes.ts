@@ -6,6 +6,7 @@ import { PasswordForgotComponent } from './auth/password-forgot/password-forgot.
 import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardMainComponent } from './dashboard/components/dashboard-main/dashboard-main.component';
+import { DashboardProfileComponent } from './dashboard/components/dashboard-profile/dashboard-profile.component';
 
 export const routes: Routes = [
   {
@@ -41,8 +42,10 @@ export const routes: Routes = [
       {
         path: '',
         component: DashboardMainComponent,
-        title: 'Dashboard',
-        outlet: 'dashboard',
+      },
+      {
+        path: 'profile',
+        component: DashboardProfileComponent,
       },
     ],
   },
