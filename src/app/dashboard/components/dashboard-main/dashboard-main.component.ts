@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DashboardService } from '../../../services/dashboard.service';
 
 @Component({
   selector: 'app-dashboard-main',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard-main.component.html',
   styleUrl: '../../dashboard.component.css',
 })
-export class DashboardMainComponent {}
+export class DashboardMainComponent {
+  users: any[] = [];
+  constructor(private dashboardService: DashboardService) {}
+
+  ngOnInit(): void {
+    this.dashboardService.getUsers().then((data) => {
+      console.log(data);
+      this.users = data.users;
+    });
+  }
+}
