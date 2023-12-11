@@ -13,13 +13,18 @@ import { Router } from '@angular/router';
 export class TestComponent {
   isLoggedIn = false;
   name: string | undefined;
+  isAdmin: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isUserLoggedIn();
-    this.authService.getUser().then((data) => (this.name = data.name));
-    console.log(this.name);
+    this.authService.getUser().then((data) => {
+      this.name = data.name;
+      if (data.rol == 'Admin') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   async logout() {
