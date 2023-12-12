@@ -11,4 +11,14 @@ export class DashboardService {
     const response = await this.axiosService.get('dashboard/users');
     return response.data;
   }
+
+  async getUser(id: string) {
+    const response = await this.axiosService.get(`dashboard/user/${id}`);
+    return response.data;
+  }
+
+  async updateUser(id: string, data: any) {
+    const response = await this.axiosService.post(`dashboard/user/${id}`, data);
+    return response.data;
+  }
 }
