@@ -64,11 +64,8 @@ export class RegisterComponent {
           this.applyForm.value.email ?? '',
           this.applyForm.value.password ?? ''
         );
-        console.log(response.message === 'El correo ya esta registrado');
-
-        return;
+        this.router.navigate(['/']);
       }
-      this.router.navigate(['/']);
     } catch (error) {
       if ((error as Response).response.data.message) {
         this.alreadyRegistered = true;
