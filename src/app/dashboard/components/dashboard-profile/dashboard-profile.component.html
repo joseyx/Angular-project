@@ -1,26 +1,53 @@
 <div class="mb-3">
   <h1 class="h3 d-inline align-middle">Perfil</h1>
 </div>
-<div class="col-md-4 col-xl-3">
-  <div class="card mb-3">
-    <div class="card-header">
+<div class="col-12">
+  <div class="card mb-3 w-50">
+    <div class="card-header m-lg-auto">
       <h5 class="card-title mb-0">Detalles del perfil</h5>
     </div>
     <div class="card-body text-center">
       <img
-        src="../../../../assets/img/avatars/avatar-4.jpg"
+        src="../../../../assets/img/avatars/avatar.jpg"
         alt="Christina Mason"
         class="img-fluid rounded-circle mb-2"
         width="128"
         height="128"
       />
-      <h5 class="card-title mb-0">[nombre y apellio]</h5>
-      <div class="text-muted mb-2">[rol]</div>
+      @if (user.extra_data?.lastName) {
+      <h5 class="card-title mb-0">
+        {{ user.name }} {{ user.extra_data?.lastName }}
+      </h5>
+      } @else {
+      <h5 class="card-title mb-0">{{ user.name }}</h5>
+      }
+      <div class="text-muted mb-2">{{ user.rol }}</div>
     </div>
     <hr class="my-0" />
-    <div class="card-body">
+
+    <div class="card-body m-auto">
       <h5 class="h6 card-title">Acerca de</h5>
       <ul class="list-unstyled mb-0">
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-map-pin feather-sm me-1"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ user.email }}
+        </li>
+        @if(user.extra_data){ @if (user.extra_data.estado &&
+        user.extra_data.ciudad) {
         <li class="mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,9 +64,66 @@
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
-          [estaddo y ciudad]
+          {{ user.extra_data.ciudad }}, estado {{ user.extra_data.estado }}
         </li>
-
+        } @else if (user.extra_data.estado) {
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-home feather-sm me-1"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Estado {{ user.extra_data.estado }}
+        </li>
+        } @else if (user.extra_data.ciudad) {
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-home feather-sm me-1"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          {{ user.extra_data.ciudad }}
+        </li>
+        } @else {
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-home feather-sm me-1"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Ubicacion no establecida
+        </li>
+        } @if (user.extra_data.cedula) {
         <li class="mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +140,28 @@
             <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
           </svg>
-          [Cedula]
+          {{ user.extra_data.cedula }}
         </li>
+        } @else {
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-card feather-sm me-1"
+          >
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          Cedula no establecida
+        </li>
+        } @if (user.extra_data.direccion) {
         <li class="mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,8 +178,9 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          [direccion]
+          {{ user.extra_data.direccion }}
         </li>
+        } @else {
         <li class="mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,8 +197,9 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          [email]
+          Direccion no establecida
         </li>
+        } @if (user.extra_data.telefono) {
         <li class="mb-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -110,10 +216,39 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          [telefono]
+          {{ user.extra_data.telefono }}
         </li>
+        } @else {
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-map-pin feather-sm me-1"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Telefono no disponible
+        </li>
+        } }
       </ul>
     </div>
+
     <hr class="my-0" />
+    <div class="card-footer m-auto">
+      <h5 class="card-title">Opciones</h5>
+      <div class="mb-4 d-flex justify-content-evenly align-items-center">
+        <a class="btn btn-primary btn-sm m-2" [routerLink]="['edit']"
+          >Completar perfil o Actualizar perfil</a
+        >
+      </div>
+    </div>
   </div>
 </div>

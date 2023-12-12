@@ -1,0 +1,105 @@
+<div class="card mb-3 w-50">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Actualizar perfil</h5>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitUpdate()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nombre</label>
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="user.name"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Apellido</label>
+        <input
+          type="text"
+          name="apellido"
+          [(ngModel)]="user.extra_data.lastName"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Email</label>
+        <input
+          type="text"
+          name="email"
+          [(ngModel)]="user.email"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">cedula</label>
+        <input
+          type="text"
+          name="cedula"
+          [(ngModel)]="user.extra_data.cedula"
+          id="floating_email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Estado</label>
+        <input
+          type="text"
+          name="estado"
+          [(ngModel)]="user.extra_data.estado"
+          id="floating_email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Ciudad</label>
+        <input
+          type="text"
+          name="ciudad"
+          [(ngModel)]="user.extra_data.ciudad"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Dirección</label>
+        <input
+          type="text"
+          name="direccion"
+          [(ngModel)]="user.extra_data.direccion"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Número telefonico</label
+        >
+        <input
+          type="text"
+          name="telefono"
+          [(ngModel)]="user.extra_data.telefono"
+          id="floating_email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+  <hr class="my-0" />
+</div>
