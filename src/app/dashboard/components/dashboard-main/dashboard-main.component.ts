@@ -14,8 +14,11 @@ export class DashboardMainComponent {
 
   ngOnInit(): void {
     this.dashboardService.getUsers().then((data) => {
-      console.log(data);
       this.users = data.users;
     });
+  }
+
+  goToProfile(id: string) {
+    window.location.href = `/dashboard/profile/${id}`;
   }
 }

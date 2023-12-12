@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           @for (user of users; track user.id) {
-          <tr>
+          <tr (click)="goToProfile(user.id)">
             <td class="d-none d-xl-table-cell">{{ user.id }}</td>
             <td class="d-none d-xl-table-cell">{{ user.email }}</td>
             <td class="d-none d-xl-table-cell">{{ user.name }}</td>
