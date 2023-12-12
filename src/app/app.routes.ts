@@ -7,6 +7,7 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardMainComponent } from './dashboard/components/dashboard-main/dashboard-main.component';
 import { DashboardProfileComponent } from './dashboard/components/dashboard-profile/dashboard-profile.component';
+import { UpdateProfileComponent } from './dashboard/components/dashboard-profile/components/update-profile/update-profile.component';
 
 export const routes: Routes = [
   {
@@ -44,8 +45,12 @@ export const routes: Routes = [
         component: DashboardMainComponent,
       },
       {
-        path: 'profile',
+        path: 'profile/:id',
         component: DashboardProfileComponent,
+      },
+      {
+        path: 'profile/:id/edit',
+        component: UpdateProfileComponent,
       },
     ],
   },
