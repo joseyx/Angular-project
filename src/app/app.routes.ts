@@ -9,6 +9,10 @@ import { DashboardMainComponent } from './dashboard/components/dashboard-main/da
 import { DashboardProfileComponent } from './dashboard/components/dashboard-profile/dashboard-profile.component';
 import { UpdateProfileComponent } from './dashboard/components/dashboard-profile/components/update-profile/update-profile.component';
 
+import { ViewSalaComponent } from './dashboard/components/view-sala/view-sala.component';
+import { CreateSalaComponent } from './dashboard/components/view-sala/components/create-sala/create-sala.component';
+import { UpdateSalaComponent } from './dashboard/components/view-sala/components/update-sala/update-sala.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -42,7 +46,13 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'main',
+        pathMatch: 'full',
+      },
+      {
+        path: 'main',
         component: DashboardMainComponent,
+        pathMatch: 'full',
       },
       {
         path: 'profile/:id',
@@ -51,6 +61,18 @@ export const routes: Routes = [
       {
         path: 'profile/:id/edit',
         component: UpdateProfileComponent,
+      },
+      {
+        path: 'sala/create',
+        component: CreateSalaComponent,
+      },
+      {
+        path: 'sala/:id',
+        component: ViewSalaComponent,
+      },
+      {
+        path: 'sala/:id/edit',
+        component: UpdateSalaComponent,
       },
     ],
   },

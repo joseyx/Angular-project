@@ -36,12 +36,7 @@
           href="#"
           data-bs-toggle="dropdown"
         >
-          <img
-            src="../../../../assets/img/avatars/avatar.jpg"
-            class="avatar img-fluid rounded me-1"
-            alt="Charles Hall"
-          />
-          <span class="text-dark">Charles Hall</span>
+          <span class="text-dark">{{ name }} </span>
         </a>
         <div id="profileDropdown" class="dropdown-menu dropdown-menu-end">
           <a class="dropdown-item" href="pages-profile.html"
@@ -121,7 +116,9 @@
             Help Center</a
           >
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Log out</a>
+          <a class="dropdown-item" [routerLink]="['login']" (click)="logout()"
+            >Log out</a
+          >
         </div>
       </li>
     </ul>

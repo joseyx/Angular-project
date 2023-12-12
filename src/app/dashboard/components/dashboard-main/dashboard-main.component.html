@@ -36,3 +36,40 @@
     </div>
   </div>
 </div>
+<h1 class="h3 mb-3"><strong>Salas</strong> registradas</h1>
+<div class="row">
+  <div class="col-12 col-lg-8 col-xxl-9 d-flex">
+    <div class="card flex-fill">
+      <table class="table table-hover my-0">
+        <thead>
+          <tr>
+            <th class="d-none d-md-table-cell">Id</th>
+            <th class="d-none d-md-table-cell">Nombre de sala</th>
+            <th class="d-none d-xl-table-cell">Tipo</th>
+            <th class="d-none d-xl-table-cell">Desde</th>
+            <th class="d-none d-xl-table-cell">Hasta</th>
+            <th class="d-none d-md-table-cell">Asientos</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (sala of salas; track sala.id) {
+          <tr (click)="goToSala(sala.id)">
+            <td class="d-none d-xl-table-cell">{{ sala.id }}</td>
+            <td class="d-none d-xl-table-cell">{{ sala.nombre }}</td>
+            <td class="d-none d-xl-table-cell">{{ sala.tipo }}</td>
+            <td class="d-none d-xl-table-cell">
+              {{ sala.desde }}
+            </td>
+            <td class="d-none d-xl-table-cell">
+              {{ sala.hasta }}
+            </td>
+            <td>
+              <span class="d-none d-xl-table-cell">{{ sala.capacidad }}</span>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

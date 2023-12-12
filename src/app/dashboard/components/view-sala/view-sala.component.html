@@ -1,0 +1,87 @@
+<div class="mb-3">
+  <h1 class="h3 d-inline align-middle">Sala</h1>
+</div>
+<div class="col-12">
+  <div class="card mb-3 w-50">
+    <div class="card-header m-lg-auto">
+      <h5 class="card-title mb-0">Detalles de la sala</h5>
+    </div>
+    <div class="card-body text-center">
+      <h5 class="card-title mb-0">{{ sala.nombre }}</h5>
+
+      <div class="text-muted mb-2">{{ sala.tipo }}</div>
+    </div>
+    <hr class="my-0" />
+
+    <div class="card-body m-auto">
+      <h5 class="h6 card-title">Acerca de la sala</h5>
+      <ul class="list-unstyled mb-0">
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-map-pin feather-sm me-1"
+          >
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          {{ sala.desde }}
+        </li>
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-home feather-sm me-1"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          {{ sala.hasta }}
+        </li>
+
+        <li class="mb-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-home feather-sm me-1"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          {{ sala.capacidad }}
+        </li>
+      </ul>
+    </div>
+
+    <hr class="my-0" />
+    <div class="card-footer m-auto">
+      <h5 class="card-title">Opciones</h5>
+      <div class="mb-4 d-flex justify-content-evenly align-items-center">
+        <a class="btn btn-primary btn-sm m-2" [routerLink]="['edit']"
+          >Actualizar</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="card mb-3 w-50">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Actualizar sala</h5>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitUpdate()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Nombre de la sala</label
+        >
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="sala.nombre"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Tipo de la sala</label
+        >
+        <select
+          name="tipo"
+          [(ngModel)]="sala.tipo"
+          class="form-control"
+          id="exampleInputPassword1"
+        >
+          <option value="1">Sala regular</option>
+          <option value="2">Sala vip</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Desde que fecha</label
+        >
+        <input
+          type="date"
+          name="desde"
+          [(ngModel)]="sala.desde"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Haste que fecha</label
+        >
+        <input
+          type="date"
+          name="desde"
+          [(ngModel)]="sala.hasta"
+          id="floating_email"
+          class="form-control"
+          id="exampleInputEmail1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Asientos</label>
+        <input
+          type="number"
+          name="asientos"
+          [(ngModel)]="sala.capacidad"
+          class="form-control"
+          id="exampleInputEmail1"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar sala</button>
+    </form>
+  </div>
+  <hr class="my-0" />
+</div>
