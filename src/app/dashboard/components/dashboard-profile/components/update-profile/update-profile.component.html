@@ -19,7 +19,7 @@
         <input
           type="text"
           name="apellido"
-          [(ngModel)]="user.extra_data.lastName"
+          [(ngModel)]="user.lastName"
           class="form-control"
           id="exampleInputPassword1"
         />
@@ -40,7 +40,7 @@
         <input
           type="text"
           name="cedula"
-          [(ngModel)]="user.extra_data.cedula"
+          [(ngModel)]="user.cedula"
           id="floating_email"
           class="form-control"
           id="exampleInputEmail1"
@@ -53,7 +53,7 @@
         <input
           type="text"
           name="estado"
-          [(ngModel)]="user.extra_data.estado"
+          [(ngModel)]="user.estado"
           id="floating_email"
           class="form-control"
           id="exampleInputEmail1"
@@ -66,7 +66,7 @@
         <input
           type="text"
           name="ciudad"
-          [(ngModel)]="user.extra_data.ciudad"
+          [(ngModel)]="user.ciudad"
           class="form-control"
           id="exampleInputPassword1"
         />
@@ -77,7 +77,7 @@
         <input
           type="text"
           name="direccion"
-          [(ngModel)]="user.extra_data.direccion"
+          [(ngModel)]="user.direccion"
           class="form-control"
           id="exampleInputPassword1"
         />
@@ -90,11 +90,26 @@
         <input
           type="text"
           name="telefono"
-          [(ngModel)]="user.extra_data.telefono"
+          [(ngModel)]="user.telefono"
           id="floating_email"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Foto de perfil</label
+        >
+        <input
+          (change)="onFileSelected($event)"
+          type="File"
+          accept="image/*"
+          name="foto"
+          id="floating_email"
+          class="form-control"
+          id="exampleInputEmail1"
         />
       </div>
 

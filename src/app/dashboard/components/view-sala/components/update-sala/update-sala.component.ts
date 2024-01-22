@@ -68,7 +68,7 @@ export class UpdateSalaComponent {
         data
       );
       if (response) {
-        this.router.navigate(['/dashboard/profile/', this.id]);
+        this.router.navigate(['/dashboard/']);
       }
     } catch (error) {
       console.log(error);

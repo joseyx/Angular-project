@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewSalaComponent } from './view-sala.component';
+import { EditPeliculaComponent } from './edit-pelicula.component';
 
-describe('ViewSalaComponent', () => {
-  let component: ViewSalaComponent;
-  let fixture: ComponentFixture<ViewSalaComponent>;
+describe('EditPeliculaComponent', () => {
+  let component: EditPeliculaComponent;
+  let fixture: ComponentFixture<EditPeliculaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewSalaComponent]
+      imports: [EditPeliculaComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ViewSalaComponent);
+    fixture = TestBed.createComponent(EditPeliculaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

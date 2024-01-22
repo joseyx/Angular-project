@@ -20,6 +20,7 @@ export class DashboardMainComponent {
     });
     this.dashboardService.getSalas().then((data) => {
       this.salas = data.salaDeCine;
+      console.log(this.salas);
     });
   }
 

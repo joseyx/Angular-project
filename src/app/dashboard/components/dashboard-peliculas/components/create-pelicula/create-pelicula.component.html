@@ -1,0 +1,141 @@
+<p>create-pelicula works!</p>
+<div class="card mb-3 w-50 ms-2">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Registrar Película</h5>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitPelicula()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Titulo de la pelicula</label
+        >
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          [(ngModel)]="pelicula.nombre"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Sinopsis</label>
+        <input
+          type="text"
+          name="sinopsis"
+          [(ngModel)]="pelicula.sinopsis"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Genero</label>
+        <input
+          type="text"
+          name="genero"
+          [(ngModel)]="pelicula.genero"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Fecha de estreno</label
+        >
+        <input
+          type="date"
+          [(ngModel)]="pelicula.fecha_estreno"
+          name="fecha_estreno"
+          id="floating_email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Poster</label>
+        <input
+          (change)="onFileSelected($event)"
+          type="file"
+          name="poster"
+          accept="image/*"
+          id="floating_email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          ><strong>Colores:</strong></label
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Color del fondo:</label
+        >
+        <input
+          type="color"
+          [(ngModel)]="pelicula.color_fondo"
+          name="color_fondo"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Color del texto</label
+        >
+        <input
+          type="color"
+          [(ngModel)]="pelicula.color_texto"
+          name="color_text"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Color de los botones</label
+        >
+        <input
+          type="color"
+          [(ngModel)]="pelicula.color_botones"
+          name="color_botones"
+          id="floating_email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Color adicional 1:</label
+        >
+        <input
+          type="color"
+          [(ngModel)]="pelicula.color_extra1"
+          name="color_extra1"
+          id="floating_email"
+          class="form-control"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Color adicional 2:</label
+        >
+        <input
+          type="color"
+          [(ngModel)]="pelicula.color_extra2"
+          name="color_extra2"
+          id="floating_email"
+          class="form-control"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+  <hr class="my-0" />
+</div>

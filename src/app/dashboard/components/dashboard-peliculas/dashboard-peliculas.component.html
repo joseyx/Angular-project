@@ -1,0 +1,66 @@
+<h1 class="h3 mb-3"><strong>Peliculas</strong> Registradas</h1>
+
+<div class="row">
+  <div class="col-12 col-lg-8 col-xl-9 d-sm-flex">
+    <div class="card flex-fill">
+      <div class="card-header">
+        <div class="button-container">
+          <a class="btn btn-primary" [routerLink]="['create']">
+            Agregar Película
+          </a>
+          <span class="button-spacing"></span>
+        </div>
+      </div>
+      <table class="table table-hover my-0">
+        <thead>
+          <tr>
+            <th class="d-none d-sm-table-cell">ID</th>
+            <th class="d-none d-sm-table-cell">Titulo</th>
+            <th class="d-none d-sm-table-cell">Genero</th>
+            <th class="d-none d-sm-table-cell">Fecha de Estreno</th>
+            <th class="d-none d-sm-table-cell">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (pelicula of peliculas; track pelicula.id) {
+          <tr>
+            <td
+              class="d-none d-sm-table-cell"
+              (click)="goToPelicula(pelicula.id)"
+            >
+              {{ pelicula.id }}
+            </td>
+            <td
+              class="d-none d-sm-table-cell"
+              (click)="goToPelicula(pelicula.id)"
+            >
+              {{ pelicula.nombre }}
+            </td>
+            <td
+              class="d-none d-sm-table-cell"
+              (click)="goToPelicula(pelicula.id)"
+            >
+              {{ pelicula.Genero }}
+            </td>
+            <td
+              class="d-none d-sm-table-cell"
+              (click)="goToPelicula(pelicula.id)"
+            >
+              {{ pelicula.fecha_estreno }}
+            </td>
+            <td class="d-none d-sm-table-cell">
+              <button
+                class="btn btn-danger"
+                (click)="deletePelicula(pelicula.id)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

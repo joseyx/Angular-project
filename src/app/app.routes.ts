@@ -12,6 +12,10 @@ import { UpdateProfileComponent } from './dashboard/components/dashboard-profile
 import { ViewSalaComponent } from './dashboard/components/view-sala/view-sala.component';
 import { CreateSalaComponent } from './dashboard/components/view-sala/components/create-sala/create-sala.component';
 import { UpdateSalaComponent } from './dashboard/components/view-sala/components/update-sala/update-sala.component';
+import { DashboardPeliculasComponent } from './dashboard/components/dashboard-peliculas/dashboard-peliculas.component';
+import { CreatePeliculaComponent } from './dashboard/components/dashboard-peliculas/components/create-pelicula/create-pelicula.component';
+import { ViewPeliculaComponent } from './dashboard/components/dashboard-peliculas/components/view-pelicula/view-pelicula.component';
+import { EditPeliculaComponent } from './dashboard/components/dashboard-peliculas/components/edit-pelicula/edit-pelicula.component';
 
 export const routes: Routes = [
   {
@@ -73,6 +77,22 @@ export const routes: Routes = [
       {
         path: 'sala/:id/edit',
         component: UpdateSalaComponent,
+      },
+      {
+        path: 'peliculas',
+        component: DashboardPeliculasComponent,
+      },
+      {
+        path: 'peliculas/create',
+        component: CreatePeliculaComponent,
+      },
+      {
+        path: 'pelicula/:id',
+        component: ViewPeliculaComponent,
+      },
+      {
+        path: 'pelicula/:id/edit',
+        component: EditPeliculaComponent,
       },
     ],
   },

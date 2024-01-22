@@ -1,0 +1,12 @@
+.color-cubes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.color-cube {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}

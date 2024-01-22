@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { DashboardNavComponent } from './components/dashboard-nav/dashboard-nav.component';
+import { DashboardNavComponent } from '../dashboard/components/dashboard-nav/dashboard-nav.component';
 import { DashboardMainComponent } from './components/dashboard-main/dashboard-main.component';
-import { DashboardSidebarComponent } from './components/dashboard-sidebar/dashboard-sidebar.component';
+import { DashboardSidebarComponent } from '../dashboard/components/dashboard-sidebar/dashboard-sidebar.component';
 
 @Component({
   selector: 'app-dashboard',

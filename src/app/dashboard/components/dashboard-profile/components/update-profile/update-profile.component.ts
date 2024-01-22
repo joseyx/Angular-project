@@ -11,21 +11,20 @@ import { RouterModule } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../../../../../services/dashboard.service';
+import { FirebaseService } from '../../../../../services/firebase/firebase.service';
 
-interface extra_data {
+interface Profile {
+  id: number;
+  name: string;
+  email: string;
+  rol: string;
   lastName: string;
   cedula: string;
   telefono: string;
   direccion: string;
   ciudad: string;
   estado: string;
-}
-interface Profile {
-  id: number;
-  name: string;
-  email: string;
-  rol: string;
-  extra_data: extra_data;
+  foto: string | File;
 }
 
 @Component({
@@ -39,24 +38,25 @@ export class UpdateProfileComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   private id = this.route.snapshot.params['id'] ?? null;
   user: Profile;
+  Foto: File | null = null;
 
   constructor(
     private dashboardService: DashboardService,
-    private router: Router
+    private router: Router,
+    private firebaseService: FirebaseService
   ) {
     this.user = {
       id: 0,
       name: '',
       email: '',
       rol: '',
-      extra_data: {
-        lastName: '',
-        cedula: '',
-        telefono: '',
-        direccion: '',
-        ciudad: '',
-        estado: '',
-      },
+      lastName: '',
+      cedula: '',
+      telefono: '',
+      direccion: '',
+      ciudad: '',
+      estado: '',
+      foto: '',
     };
   }
 
@@ -66,18 +66,37 @@ export class UpdateProfileComponent {
     });
   }
 
+  async onFileSelected(event: any) {
+    const foto: File = event.target.files[0];
+
+    this.Foto = foto;
+  }
+
   async submitUpdate() {
     try {
+      console.log(this.user.foto);
+
+      if (this.Foto != null) {
+        const response = await this.firebaseService.uploadProfileFile(
+          this.Foto as File,
+          this.user.name
+        );
+        this.user.foto = response;
+      }
+
+      console.log(this.user.foto);
+
       const data = {
         name: this.user.name,
         email: this.user.email,
         rol: this.user.rol,
-        lastName: this.user.extra_data.lastName,
-        cedula: this.user.extra_data.cedula,
-        telefono: this.user.extra_data.telefono,
-        direccion: this.user.extra_data.direccion,
-        ciudad: this.user.extra_data.ciudad,
-        estado: this.user.extra_data.estado,
+        lastName: this.user.lastName,
+        cedula: this.user.cedula,
+        telefono: this.user.telefono,
+        direccion: this.user.direccion,
+        ciudad: this.user.ciudad,
+        estado: this.user.estado,
+        foto: this.user.foto,
       };
 
       const response = await this.dashboardService.updateUser(

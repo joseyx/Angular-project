@@ -21,7 +21,7 @@
               <ul class="sidebar-nav">
                 <li class="sidebar-header">Pages</li>
 
-                <li class="sidebar-item active">
+                <li class="sidebar-item" [routerLinkActive]="'active'">
                   <a class="sidebar-link" [routerLink]="['main']">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@
                   </a>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item" [routerLinkActive]="'active'">
                   <a class="sidebar-link" [routerLink]="['sala/create']">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -72,8 +72,8 @@
                   </a>
                 </li>
 
-                <li class="sidebar-item">
-                  <a class="sidebar-link" href="pages-sign-in.html">
+                <li class="sidebar-item" [routerLinkActive]="'active'">
+                  <a class="sidebar-link" [routerLink]="['peliculas']">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -92,11 +92,11 @@
                       <polyline points="10 17 15 12 10 7"></polyline>
                       <line x1="15" y1="12" x2="3" y2="12"></line>
                     </svg>
-                    <span class="align-middle">Sign In</span>
+                    <span class="align-middle">Peliculas</span>
                   </a>
                 </li>
 
-                <li class="sidebar-item">
+                <li class="sidebar-item" [routerLinkActive]="'active'">
                   <a class="sidebar-link" href="pages-sign-up.html">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

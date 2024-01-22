@@ -47,4 +47,33 @@ export class DashboardService {
     );
     return response.data;
   }
+
+  async createPelicula(data: any) {
+    const response = await this.axiosService.post(
+      `dashboard/pelicula/create`,
+      data
+    );
+
+    return response.data;
+  }
+
+  async getPeliculas() {
+    const response = await this.axiosService.get('dashboard/peliculas');
+
+    return response.data;
+  }
+
+  async getPelicula(id: string) {
+    const response = await this.axiosService.get(`dashboard/pelicula/${id}`);
+
+    return response.data;
+  }
+
+  async deletePelicula(id: string) {
+    const response = await this.axiosService.delete(
+      `dashboard/pelicula/delete/${id}`
+    );
+
+    return response.data;
+  }
 }

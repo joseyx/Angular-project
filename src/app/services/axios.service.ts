@@ -33,4 +33,8 @@ export class AxiosService {
   post(url: string, data: any) {
     return this.httpClient.post(url, data);
   }
+
+  delete(url: string) {
+    return this.httpClient.delete(url);
+  }
 }
