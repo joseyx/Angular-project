@@ -16,12 +16,14 @@ import { DashboardPeliculasComponent } from './dashboard/components/dashboard-pe
 import { CreatePeliculaComponent } from './dashboard/components/dashboard-peliculas/components/create-pelicula/create-pelicula.component';
 import { ViewPeliculaComponent } from './dashboard/components/dashboard-peliculas/components/view-pelicula/view-pelicula.component';
 import { EditPeliculaComponent } from './dashboard/components/dashboard-peliculas/components/edit-pelicula/edit-pelicula.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { VistaPeliculaComponent } from './vista-pelicula/vista-pelicula.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: TestComponent,
-    title: 'Test',
+    component: CarouselComponent,
+    title: 'Main',
   },
   {
     path: 'login',
@@ -42,6 +44,10 @@ export const routes: Routes = [
     path: 'reset-password/:token',
     component: ResetPasswordComponent,
     title: 'Reset Password',
+  },
+  {
+    path: 'pelicula/:id',
+    component: VistaPeliculaComponent,
   },
   {
     path: 'dashboard',

@@ -1,0 +1,95 @@
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #f7f7f7; /* Background color */
+  color: #333333; /* Font color */
+  padding: 20px;
+}
+
+.movie-poster {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.movie-poster img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.movie-info {
+  font-size: 20px;
+  max-width: 600px; /* Adjust the value as needed */
+  margin: 0 auto; /* Center-align the container */
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movie-synopsis {
+  font-size: 18px;
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+}
+
+.movie-genre,
+.movie-release-date {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Button and link styles */
+.button {
+  background-color: #ff0000; /* Button background color */
+  color: #ffffff; /* Button font color */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.link {
+  color: #0000ff; /* Link color */
+  text-decoration: underline;
+}
+
+.color-cubes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.color-cube {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.buy-ticket-button,
+.watch-trailer-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.buy-ticket-button:hover,
+.watch-trailer-button:hover {
+  filter: brightness(70%);
+}

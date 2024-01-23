@@ -1,0 +1,52 @@
+<app-test></app-test>
+<div
+  class="movie-details"
+  [style]="{ 'background-color': pelicula.color_fondo }"
+>
+  <div class="movie-poster">
+    <img [src]="pelicula.poster" alt="Movie Poster" />
+  </div>
+  <div class="movie-info" [style]="{ color: pelicula.color_texto }">
+    <h2 class="movie-title">{{ pelicula.nombre }}</h2>
+    <p class="movie-synopsis">{{ pelicula.sinopsis }}</p>
+    <p class="movie-genre">Genero: {{ pelicula.Genero }}</p>
+    <p class="movie-release-date">
+      Fecha de estreno: {{ pelicula.fecha_estreno }}
+    </p>
+    <button
+      [style]="{ 'background-color': pelicula.color_extra2 }"
+      class="buy-ticket-button"
+    >
+      Comprar Entrada
+    </button>
+    <button
+      [style]="{ 'background-color': pelicula.color_extra1 }"
+      class="watch-trailer-button"
+    >
+      Ver Trailer
+    </button>
+  </div>
+
+  <div class="color-cubes">
+    <div
+      class="color-cube"
+      [ngStyle]="{ 'background-color': pelicula.color_fondo }"
+    ></div>
+    <div
+      class="color-cube"
+      [ngStyle]="{ 'background-color': pelicula.color_texto }"
+    ></div>
+    <div
+      class="color-cube"
+      [ngStyle]="{ 'background-color': pelicula.color_botones }"
+    ></div>
+    <div
+      class="color-cube"
+      [ngStyle]="{ 'background-color': pelicula.color_extra1 }"
+    ></div>
+    <div
+      class="color-cube"
+      [ngStyle]="{ 'background-color': pelicula.color_extra2 }"
+    ></div>
+  </div>
+</div>
