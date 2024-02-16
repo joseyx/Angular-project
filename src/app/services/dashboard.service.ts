@@ -76,4 +76,30 @@ export class DashboardService {
 
     return response.data;
   }
+
+  async getHorarios() {
+    const response = await this.axiosService.get('dashboard/horarios');
+    return response.data;
+  }
+
+  async createHorario(data: any) {
+    const response = await this.axiosService.post(`dashboard/horario`, data);
+    return response.data;
+  }
+
+  async getHorario(id: string) {
+    const response = await this.axiosService.get(`dashboard/horario/${id}`);
+    return response.data;
+  }
+
+  async changeAsientosDisponible(asientos: string[], id: string) {
+    const data = {
+      asientos: asientos,
+    };
+    const response = await this.axiosService.post(
+      `dashboard/entrada/${id}`,
+      data
+    );
+    return response.data;
+  }
 }

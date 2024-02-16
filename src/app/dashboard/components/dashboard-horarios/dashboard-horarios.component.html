@@ -1,0 +1,40 @@
+<h1 class="h3 mb-3"><strong>Horarios</strong> registrados</h1>
+
+<div class="row">
+  <div class="col-12 col-lg-8 col-xxl-9 d-sm-flex">
+    <div class="card flex-fill">
+      <div class="card-header">
+        <div class="button-container">
+          <a class="btn btn-primary" [routerLink]="['create']">
+            Agregar Horario
+          </a>
+          <span class="button-spacing"></span>
+        </div>
+      </div>
+      <table class="table table-hover my-0">
+        <thead>
+          <tr>
+            <th class="d-none d-sm-table-cell">Id</th>
+            <th class="d-none d-sm-table-cell">Sala</th>
+            <th class="d-none d-sm-table-cell">Pelicula</th>
+            <th class="d-none d-sm-table-cell">Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (horario of horarios; track horario.id) {
+          <tr>
+            <td class="d-none d-sm-table-cell">{{ horario.id }}</td>
+            <td class="d-none d-sm-table-cell">{{ horario.sala.nombre }}</td>
+            <td class="d-none d-sm-table-cell">
+              {{ horario.pelicula.nombre }}
+            </td>
+            <td class="d-none d-sm-table-cell">
+              {{ horario.hora }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

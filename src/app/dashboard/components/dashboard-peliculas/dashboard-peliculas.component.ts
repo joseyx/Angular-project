@@ -14,6 +14,8 @@ interface Pelicula {
   color_botones: string;
   color_extra1: string;
   color_extra2: string;
+  duracion: string;
+  clasificacion: string;
 }
 
 @Component({
@@ -37,8 +39,6 @@ export class DashboardPeliculasComponent {
   async ngOnInit() {
     const response = await this.dashboardService.getPeliculas();
     this.peliculas = response.peliculas;
-
-    console.log(response.peliculas);
   }
 
   goToPelicula(id: string) {

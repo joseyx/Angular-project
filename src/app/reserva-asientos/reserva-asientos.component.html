@@ -1,0 +1,44 @@
+<app-test></app-test>
+<div class="play-container containerr">
+  <div class="about-movie containerr">
+    <h2>{{ horario.pelicula.nombre }}</h2>
+    <p>{{ horario.pelicula.sinopsis }}</p>
+    <p>Horario elegido: {{ horario.hora }}</p>
+    <div class="funciones-links">
+      <a (click)="submitAsientos()">Comprar</a>
+    </div>
+  </div>
+  <div class="leyenda-asientos">
+    <ul>
+      <li>
+        <i class="bx bx-chair asiento"></i>
+        <small>Disponible</small>
+      </li>
+      <li>
+        <i class="bx bx-chair asiento seleccionado"></i>
+        <small>Seleccionado</small>
+      </li>
+      <li>
+        <i class="bx bx-chair asiento vendido"></i>
+        <small>Vendido</small>
+      </li>
+    </ul>
+  </div>
+  <div class="sala">
+    <i class="bx bxs-tv screen"></i>
+    <div class="asientos">
+      <div class="row" *ngFor="let fila of getFilas()">
+        <i
+          *ngFor="let asiento of getAsientosPorFila(fila)"
+          class="bx bx-chair asiento"
+          [ngClass]="{
+            'bx-spin-hover': asiento.state === 'disponible',
+            'seleccionado bx-tada-hover': asiento.state === 'clicked',
+            'vendido bx-burst-hover': asiento.state === 'vendido'
+          }"
+          (click)="toggleState(asiento)"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

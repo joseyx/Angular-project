@@ -56,15 +56,12 @@
           <tr (click)="goToSala(sala.id)">
             <td class="d-none d-sm-table-cell">{{ sala.id }}</td>
             <td class="d-none d-sm-table-cell">{{ sala.nombre }}</td>
-            <td class="d-none d-sm-table-cell">{{ sala.tipo }}</td>
+            <td class="d-none d-sm-table-cell">{{ sala.filas }}</td>
             <td class="d-none d-sm-table-cell">
-              {{ sala.desde }}
+              {{ sala.asientos_por_fila }}
             </td>
             <td class="d-none d-sm-table-cell">
-              {{ sala.hasta }}
-            </td>
-            <td>
-              <span class="d-none d-sm-table-cell">{{ sala.capacidad }}</span>
+              {{ sala.tipo }}
             </td>
           </tr>
           }

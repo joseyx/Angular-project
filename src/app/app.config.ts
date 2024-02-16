@@ -5,11 +5,13 @@ import { routes } from './app.routes';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { config } from './services/firebase/config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     importProvidersFrom(provideFirebaseApp(() => initializeApp(config))),
     importProvidersFrom(provideStorage(() => getStorage())),
+    provideAnimationsAsync(),
   ],
 };

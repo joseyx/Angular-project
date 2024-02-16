@@ -30,43 +30,33 @@
           <option value="2">Sala vip</option>
         </select>
       </div>
+
       <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label"
-          >Desde que fecha</label
+        <label for="exampleInputEmail1" class="form-label"
+          >Cantidad de filas de asientos:</label
         >
         <input
-          type="date"
-          name="desde"
-          [(ngModel)]="sala.desde"
+          type="number"
+          name="asientos"
+          [(ngModel)]="sala.filas"
           class="form-control"
-          id="exampleInputPassword1"
+          id="exampleInputEmail1"
         />
       </div>
 
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label"
-          >Haste que fecha</label
+          >Cantidad de asientos por fila:</label
         >
         <input
-          type="date"
-          name="desde"
-          [(ngModel)]="sala.hasta"
-          id="floating_email"
+          type="number"
+          name="asientos"
+          [(ngModel)]="sala.asientos_por_fila"
           class="form-control"
           id="exampleInputEmail1"
         />
       </div>
 
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Asientos</label>
-        <input
-          type="number"
-          name="asientos"
-          [(ngModel)]="sala.capacidad"
-          class="form-control"
-          id="exampleInputEmail1"
-        />
-      </div>
       <button type="submit" class="btn btn-primary">Crear Sala</button>
     </form>
   </div>

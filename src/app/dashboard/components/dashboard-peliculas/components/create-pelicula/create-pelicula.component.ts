@@ -16,6 +16,8 @@ interface Pelicula {
   color_botones: string;
   color_extra1: string;
   color_extra2: string;
+  clasificacion: string;
+  duracion: number;
 }
 
 @Component({
@@ -45,6 +47,8 @@ export class CreatePeliculaComponent {
       color_botones: '#000500',
       color_extra1: '#000050',
       color_extra2: '#000050',
+      clasificacion: '',
+      duracion: 0,
     };
   }
 
@@ -80,6 +84,8 @@ export class CreatePeliculaComponent {
         color_botones: this.pelicula.color_botones,
         color_extra1: this.pelicula.color_extra1,
         color_extra2: this.pelicula.color_extra2,
+        clasificacion: this.pelicula.clasificacion,
+        duracion: this.pelicula.duracion,
       };
 
       const response = await this.dashboardService.createPelicula(data);

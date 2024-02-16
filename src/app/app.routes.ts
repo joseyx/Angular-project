@@ -18,6 +18,10 @@ import { ViewPeliculaComponent } from './dashboard/components/dashboard-pelicula
 import { EditPeliculaComponent } from './dashboard/components/dashboard-peliculas/components/edit-pelicula/edit-pelicula.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { VistaPeliculaComponent } from './vista-pelicula/vista-pelicula.component';
+import { ReservaAsientosComponent } from './reserva-asientos/reserva-asientos.component';
+import { DashboardHorariosComponent } from './dashboard/components/dashboard-horarios/dashboard-horarios.component';
+import { CrearHorarioComponent } from './dashboard/components/dashboard-horarios/components/crear-horario/crear-horario.component';
+import { CantidadAsientosComponent } from './cantidad-asientos/cantidad-asientos.component';
 
 export const routes: Routes = [
   {
@@ -48,6 +52,14 @@ export const routes: Routes = [
   {
     path: 'pelicula/:id',
     component: VistaPeliculaComponent,
+  },
+  {
+    path: 'pelicula/horario/:id',
+    component: ReservaAsientosComponent,
+  },
+  {
+    path: 'pelicula/horario/reserva/:id',
+    component: CantidadAsientosComponent,
   },
   {
     path: 'dashboard',
@@ -99,6 +111,14 @@ export const routes: Routes = [
       {
         path: 'pelicula/:id/edit',
         component: EditPeliculaComponent,
+      },
+      {
+        path: 'horarios',
+        component: DashboardHorariosComponent,
+      },
+      {
+        path: 'horarios/create',
+        component: CrearHorarioComponent,
       },
     ],
   },

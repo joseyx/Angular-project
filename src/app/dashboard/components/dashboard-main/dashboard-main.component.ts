@@ -19,7 +19,7 @@ export class DashboardMainComponent {
       this.users = data.users;
     });
     this.dashboardService.getSalas().then((data) => {
-      this.salas = data.salaDeCine;
+      this.salas = data.salas;
       console.log(this.salas);
     });
   }

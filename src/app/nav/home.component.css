@@ -1,0 +1,271 @@
+/* .carousel-item {
+  height: 400px;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  scroll-padding-top: 2rem;
+}
+
+:root {
+  --main-color: #ffb34a;
+  --hover-color: hsl(37, 94%, 57%);
+  --body-color: #1e1e2a;
+  --container-color: #2d2e37;
+  --text-color: #fcfeff;
+}
+
+/* Custom Scroll */
+html::-webkit-scrollbar {
+  width: 0.5rem;
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.bx {
+  cursor: pointer;
+}
+
+body {
+  background: var(--body-color);
+  color: var(--text-color);
+}
+
+.containerr {
+  max-width: 1068px;
+  margin: auto;
+  width: 100%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--body-color);
+  z-index: 100;
+}
+
+.navv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 auto 0 0;
+}
+
+.logo span {
+  color: var(--main-color);
+}
+
+.search-box {
+  max-width: 240px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 0.7rem;
+  padding: 8px 15px;
+  background: var(--container-color);
+  border-radius: 4rem;
+  margin-right: 1rem;
+}
+
+.search-box .bx:hover {
+  font-size: 1.1rem;
+}
+
+.search-box .bx:hover {
+  color: var(--main-color);
+}
+
+#search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  background: transparent;
+  font-size: 0.938rem;
+}
+
+/* User */
+.user {
+  display: flex;
+}
+
+.user-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Navbar */
+.navbarr {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.1rem;
+}
+
+.nav-linkk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #b7b7b7;
+}
+
+.nav-linkk:hover,
+.nav-active {
+  color: var(--text-color);
+  transition: 0.3s all linear;
+  transform: scale(1.1);
+}
+
+.nav-linkk .bx {
+  font-size: 1.6rem;
+}
+
+.nav-link-title {
+  font-size: 0.7rem;
+}
+
+.carousel-item {
+  height: 400px;
+}
+
+section {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar .navbar-brand {
+  color: #dc3545;
+}
+
+.navbar .nav-link {
+  color: #dc3545;
+}
+
+.btn-primary {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-primary:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+.carousel-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  object-fit: cover;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 400px;
+}
+
+/* Responsive */
+@media (max-width: 1170px) {
+  .navbarr {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: translateY(0);
+    flex-direction: row;
+    justify-content: space-evenly;
+    row-gap: 1px;
+    padding: 10px;
+    border-top: 1px solid hsl(200 100% 99% / 5%);
+    background: linear-gradient(
+      8deg,
+      hsl(240 17% 14% / 100%) 5%,
+      hsl(240 17% 14% / 100%) 100%
+    );
+  }
+  .nav-link .bx {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1060px) {
+  .containerr {
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+@media (max-width: 888px) {
+  .navv {
+    padding: 14px 0;
+  }
+}
+
+/* Medium Devices */
+@media (max-width: 768px) {
+  .navv {
+    padding: 11px 0;
+  }
+  .logo {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 408px) {
+  * {
+    scroll-padding-top: 5rem;
+  }
+  .navv {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    row-gap: 5px;
+  }
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 4px;
+    order: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}

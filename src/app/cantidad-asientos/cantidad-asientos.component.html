@@ -1,0 +1,49 @@
+<app-test></app-test>
+<div class="">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="card p-4 shadow">
+      <h2 class="card-title text-center">Reserva de asientos</h2>
+      <form [formGroup]="applyForm" (submit)="submitCantidad()">
+        <div class="mb-3">
+          <label for="cantidad" class="form-label"
+            >Cuantos asientos desea comprar:</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="cantidad"
+            name="cantidad"
+            placeholder="Cantidad de entradas"
+            formControlName="cantidad"
+            required=""
+          />
+          <div
+            *ngIf="
+              applyForm.get('cantidad')?.invalid &&
+              (applyForm.get('cantidad')?.dirty ||
+                applyForm.get('cantidad')?.touched)
+            "
+            class="text-warning form-text"
+          >
+            <ul>
+              <li *ngIf="applyForm.get('cantidad')?.errors?.['required']">
+                Debe ingresar una cantidad válida
+              </li>
+              <li *ngIf="applyForm.get('cantidad')?.errors?.['max']">
+                La cantidad máxima de entradas permitidas es 10
+              </li>
+              <li *ngIf="applyForm.get('cantidad')?.errors?.['min']">
+                Debe comprar al menos una entrada
+              </li>
+              <li *ngIf="wrongsubmited">
+                Debe ingresar una cantidad entre 1 y 10
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Reservar</button>
+      </form>
+    </div>
+  </div>
+</div>

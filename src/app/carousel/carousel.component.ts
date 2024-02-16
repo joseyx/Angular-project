@@ -1,8 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestComponent } from '../nav/test.component';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../services/dashboard.service';
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
+import Swiper from 'swiper';
 
 interface Pelicula {
   id: string;
@@ -24,6 +29,7 @@ interface Pelicula {
   imports: [TestComponent, RouterModule, CommonModule],
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CarouselComponent {
   peliculas: Pelicula[] = [];

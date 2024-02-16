@@ -6,8 +6,6 @@ interface Sala {
   id: string;
   nombre: string;
   tipo: string;
-  desde: Date;
-  hasta: Date;
   capacidad: number;
 }
 
@@ -28,15 +26,14 @@ export class ViewSalaComponent {
       id: '',
       nombre: '',
       tipo: '',
-      desde: new Date(),
-      hasta: new Date(),
       capacidad: 0,
     };
   }
 
   ngOnInit() {
     this.dashboardService.getSala(this.id).then((data) => {
-      this.sala = data.salaDeCine;
+      this.sala = data.sala;
+      this.sala.capacidad = data.sala.filas * data.sala.asientos_por_fila;
     });
   }
 }

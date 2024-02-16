@@ -1,61 +1,91 @@
 <app-test></app-test>
 
-<!-- Carousel -->
-<div
-  id="carouselExampleIndicators"
-  class="carousel slide"
-  data-bs-ride="carousel"
->
-  <ol class="carousel-indicators">
-    <li
-      *ngFor="let image of peliculas; let i = index"
-      [attr.data-bs-target]="'#carouselExampleIndicators'"
-      [attr.data-bs-slide-to]="i"
-      [class.active]="i === 0"
-    ></li>
-  </ol>
-  <div class="carousel-inner">
-    <div
-      *ngFor="let image of peliculas; let i = index"
-      class="carousel-item"
-      [class.active]="i === 0"
-    >
-      <img
-        [src]="image.poster"
-        class="d-block w-100"
-        [alt]="'Slide ' + (i + 1)"
-        style="cursor: pointer"
-        (click)="goToPelicula(image.id)"
-      />
-    </div>
+<!-- Home -->
+<section class="homee containerr" id="Home">
+  <!-- Home Img -->
+  <img
+    src="https://images.squarespace-cdn.com/content/v1/5d9e9960ff34916b5d5216f9/1606024029611-1EXGQOQWWLXHXVOX9XPH/marina-banner.jpg"
+    class="home-img"
+  />
+  <!-- Home text-->
+  <div class="home-text">
+    <h1 class="home-title">Las mejores peliculas</h1>
+    <p></p>
+    <!-- <a href="#" class="comprar-btn">
+      <i class="bx bx-credit-card"></i>
+      <span>Comprar Entrada</span>
+    </a> -->
   </div>
-  <a
-    class="carousel-control-prev"
-    href="#carouselExampleIndicators"
-    role="button"
-    data-bs-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </a>
-  <a
-    class="carousel-control-next"
-    href="#carouselExampleIndicators"
-    role="button"
-    data-bs-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </a>
-</div>
+</section>
 
-<!-- Content Section -->
-<section class="py-5" style="background-color: #dc3545; color: #ffffff">
-  <div class="container">
-    <h1 class="display-4 text-center mb-4">Welcome to Your Website</h1>
-    <p class="lead text-center">Some catchy text to describe your website.</p>
-    <p class="text-center">
-      <a href="#" class="btn btn-primary btn-lg">Learn More</a>
-    </p>
+<!-- Peliculas -->
+<section class="peliculas containerr" id="peliculas">
+  <!-- Peliculas header -->
+  <div class="heading">
+    <h2 class="heading-title">Peliculas</h2>
   </div>
+  <!-- Peliculas content -->
+  <swiper-container
+    class="peliculas-content"
+    space-between="20"
+    autoplay-delay="5500"
+    autoplay-disable-on-interaction="false"
+    slides-per-view="4"
+    navigation="true"
+    scrollbar="true"
+    pagination="true"
+  >
+    @for (pelicula of peliculas; track pelicula.id) {
+    <swiper-slide>
+      <div class="movie-box" (click)="goToPelicula(pelicula.id)">
+        <img [src]="peliculas[0].poster" alt="" class="movie-box-img" />
+        <div class="box-text">
+          <h2 class="movie-title">
+            {{ pelicula.nombre }}
+          </h2>
+          <span class="movie-type">{{ pelicula.Genero }}</span>
+          <a href="#" class="comprar-btn reservar-btn">
+            <i class="bx bx-credit-card"></i>
+          </a>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <!--<div class="peliculas-content swiper">
+    <div class="swiper-wrapper">
+
+
+      <div class="swiper-slide">
+        <div class="movie-box">
+          <img [src]="peliculas[0].poster" alt="" class="movie-box-img" />
+          <div class="box-text">
+            <h2 class="movie-title">
+              {{ peliculas[0].nombre }}
+            </h2>
+            <span class="movie-type">{{ peliculas[0].Genero }}</span>
+            <a href="#" class="comprar-btn reservar-btn">
+              <i class="bx bx-credit-card"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="movie-box">
+          <img [src]="peliculas[0].poster" alt="" class="movie-box-img" />
+          <div class="box-text">
+            <h2 class="movie-title">
+              {{ peliculas[0].nombre }}
+            </h2>
+            <span class="movie-type">{{ peliculas[0].Genero }}</span>
+            <a href="#" class="comprar-btn reservar-btn">
+              <i class="bx bx-credit-card"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
 </section>

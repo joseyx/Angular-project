@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TestComponent } from '../nav/test.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../services/dashboard.service';
 
@@ -9,13 +9,19 @@ interface Pelicula {
   nombre: string;
   sinopsis: string;
   fecha_estreno: Date;
-  Genero: string;
+  genero: string;
   poster: string;
   color_texto: string;
   color_fondo: string;
   color_botones: string;
   color_extra1: string;
   color_extra2: string;
+  duracion: number;
+  clasificacion: string;
+  horarios: {
+    id: number;
+    hora: string;
+  }[];
 }
 
 @Component({
@@ -30,19 +36,30 @@ export class VistaPeliculaComponent {
   private id = this.route.snapshot.params['id'] ?? null;
 
   pelicula: Pelicula;
-  constructor(private dashboardService: DashboardService) {
+  constructor(
+    private dashboardService: DashboardService,
+    private router: Router
+  ) {
     this.pelicula = {
       id: '',
       nombre: '',
       sinopsis: '',
       fecha_estreno: new Date(),
-      Genero: '',
+      genero: '',
       poster: '',
       color_texto: '',
       color_fondo: '',
       color_botones: '',
       color_extra1: '',
       color_extra2: '',
+      duracion: 0,
+      clasificacion: '',
+      horarios: [
+        {
+          id: 0,
+          hora: '',
+        },
+      ],
     };
   }
 
@@ -50,5 +67,9 @@ export class VistaPeliculaComponent {
     this.dashboardService.getPelicula(this.id).then((data) => {
       this.pelicula = data.pelicula;
     });
+  }
+
+  async funcionElegida(id: number) {
+    this.router.navigate([`pelicula/horario/reserva/${id}`]);
   }
 }

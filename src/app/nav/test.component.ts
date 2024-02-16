@@ -9,8 +9,8 @@ import { DashboardService } from '../services/dashboard.service';
   selector: 'app-test',
   standalone: true,
   imports: [RouterModule, RouterOutlet, CommonModule],
-  templateUrl: './test.component.html',
-  styleUrl: './test.component.css',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css',
 })
 export class TestComponent {
   isLoggedIn = false;

@@ -16,9 +16,8 @@ interface Sala {
   id: string;
   nombre: string;
   tipo: string;
-  desde: Date;
-  hasta: Date;
-  capacidad: number;
+  filas: number;
+  asientos_por_fila: number;
 }
 
 @Component({
@@ -39,9 +38,8 @@ export class CreateSalaComponent {
       id: '',
       nombre: '',
       tipo: '',
-      desde: new Date(),
-      hasta: new Date(),
-      capacidad: 0,
+      filas: 0,
+      asientos_por_fila: 0,
     };
   }
 
@@ -50,9 +48,8 @@ export class CreateSalaComponent {
       const data = {
         nombre: this.sala.nombre,
         tipo: this.sala.tipo,
-        desde: this.sala.desde,
-        hasta: this.sala.hasta,
-        capacidad: this.sala.capacidad,
+        filas: this.sala.filas,
+        asientos_por_fila: this.sala.asientos_por_fila,
       };
 
       const response = await this.dashboardService.createSala(data);

@@ -64,8 +64,64 @@
   <p>Debes iniciar sesion</p>
   }
 </main>  -->
+<header>
+  <div class="navv containerr">
+    <a href="#" class="logo">Movies<span>Vel</span></a>
+    <div class="search-box">
+      <input
+        type="search"
+        name=""
+        id="search-input"
+        placeholder="Search Movie"
+      />
+      <i class="bx bx-search"></i>
+    </div>
+
+    <!--User -->
+    <a href="#" class="user">
+      <img
+        src="../../assets/img/avatars/Generic-Profile-Image.png"
+        alt="user-img"
+        class="user-img"
+      />
+    </a>
+    <!-- Navbar -->
+    <div class="navbarr">
+      <a href="#" class="nav-linkk nav-active">
+        <i class="bx bx-home"></i>
+        <span class="nav-link-title">Inicio</span>
+      </a>
+      <a [routerLink]="['/register']" *ngIf="!isLoggedIn" class="nav-linkk">
+        <i class="bx bxs-user-account"></i>
+        <span class="nav-link-title">Registrarse</span>
+      </a>
+      <a [routerLink]="['/login']" *ngIf="!isLoggedIn" class="nav-linkk">
+        <i class="bx bx-log-in"></i>
+        <span class="nav-link-title">Iniciar sesion</span>
+      </a>
+      <a
+        [routerLink]="['/dashboard']"
+        *ngIf="isLoggedIn && isAdmin"
+        class="nav-linkk"
+      >
+        <i class="bx bxs-dashboard"></i>
+        <span class="nav-link-title">Panel de control</span>
+      </a>
+      <a
+        [routerLink]="['/']"
+        (click)="logout()"
+        *ngIf="isLoggedIn"
+        class="nav-linkk"
+      >
+        <i class="bx bx-log-out"></i>
+        <span class="nav-link-title">Cerrar sesion</span>
+      </a>
+    </div>
+  </div>
+</header>
 
 <!-- Navbar -->
+<!--
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="#">Your Brand</a>
@@ -113,3 +169,4 @@
     </div>
   </div>
 </nav>
+-->

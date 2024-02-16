@@ -1,0 +1,48 @@
+<div class="card mb-3 w-50 ms-2">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Registrar Funcion</h5>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitHorario()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Hora de la funcion:</label
+        >
+        <input
+          type="time"
+          name="name"
+          class="form-control"
+          [(ngModel)]="horario.hora"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Pelicula de la funcion</label
+        >
+        <select (change)="movieSelect($event)">
+          <option>---------</option>
+          <option *ngFor="let pelicula of peliculas" [value]="pelicula.id">
+            {{ pelicula.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"
+          >Sala de la funcion:</label
+        >
+        <select (change)="salaSelect($event)">
+          <option>---------</option>
+          <option *ngFor="let sala of salas" [value]="sala.id">
+            {{ sala.nombre }}
+          </option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+  </div>
+  <hr class="my-0" />
+</div>

@@ -1,52 +1,51 @@
 <app-test></app-test>
-<div
-  class="movie-details"
-  [style]="{ 'background-color': pelicula.color_fondo }"
->
-  <div class="movie-poster">
-    <img [src]="pelicula.poster" alt="Movie Poster" />
-  </div>
-  <div class="movie-info" [style]="{ color: pelicula.color_texto }">
-    <h2 class="movie-title">{{ pelicula.nombre }}</h2>
-    <p class="movie-synopsis">{{ pelicula.sinopsis }}</p>
-    <p class="movie-genre">Genero: {{ pelicula.Genero }}</p>
-    <p class="movie-release-date">
-      Fecha de estreno: {{ pelicula.fecha_estreno }}
-    </p>
-    <button
-      [style]="{ 'background-color': pelicula.color_extra2 }"
-      class="buy-ticket-button"
-    >
-      Comprar Entrada
-    </button>
-    <button
-      [style]="{ 'background-color': pelicula.color_extra1 }"
-      class="watch-trailer-button"
-    >
-      Ver Trailer
-    </button>
-  </div>
 
-  <div class="color-cubes">
-    <div
-      class="color-cube"
-      [ngStyle]="{ 'background-color': pelicula.color_fondo }"
-    ></div>
-    <div
-      class="color-cube"
-      [ngStyle]="{ 'background-color': pelicula.color_texto }"
-    ></div>
-    <div
-      class="color-cube"
-      [ngStyle]="{ 'background-color': pelicula.color_botones }"
-    ></div>
-    <div
-      class="color-cube"
-      [ngStyle]="{ 'background-color': pelicula.color_extra1 }"
-    ></div>
-    <div
-      class="color-cube"
-      [ngStyle]="{ 'background-color': pelicula.color_extra2 }"
-    ></div>
+<div class="play-container containerr">
+  <img [src]="pelicula.poster" alt="" class="play-img" />
+  <div class="play-text">
+    <h2>{{ pelicula.nombre }}</h2>
+    <!--ratings-->
+    <div class="rating">
+      <i class="bx bxs-star"></i>
+      <i class="bx bxs-star"></i>
+      <i class="bx bxs-star"></i>
+      <i class="bx bxs-star"></i>
+      <i class="bx bxs-star-half"></i>
+    </div>
+    <!--tags-->
+    <div class="tags">
+      <span>{{ pelicula.genero }}</span>
+      <span>Duracion: {{ pelicula.duracion }} minutos</span>
+      <span>Clasificacion: {{ pelicula.clasificacion }}</span>
+    </div>
+  </div>
+  <!--Video player-->
+  <div class="video-container">
+    <!--Video-box-->
+    <div class="video-box">
+      <video
+        id="MyVideo"
+        src="https://www.youtube.com/watch?v=M8W_y0mmJEc"
+        controls
+      ></video>
+      <!--close video-->
+      <i class="bx bx-x close-video"></i>
+    </div>
+  </div>
+  <!--Play trailer-->
+  <!--<i class="bx bx-right-arrow play-movie"></i>-->
+</div>
+<!--About-->
+<div class="about-movie containerr">
+  <h2>{{ pelicula.nombre }}</h2>
+  <p>{{ pelicula.sinopsis }}</p>
+</div>
+<!--Funciones-->
+<div class="funciones">
+  <h2 class="funciones-title">Funciones disponibles</h2>
+  <div class="funciones-links">
+    @for (horario of pelicula.horarios; track horario.id) {
+    <a (click)="funcionElegida(horario.id)">{{ horario.hora }}</a>
+    }
   </div>
 </div>

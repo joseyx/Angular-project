@@ -45,123 +45,9 @@ img {
   margin-top: 5rem !important;
 }
 
-.play-img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  object-fit: cover;
-  object-position: center;
-}
-
-.play-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 40px;
-  background: linear-gradient(
-    8deg,
-    hsl(240 17% 14% / 74%) 14%,
-    hsl(240 17% 14% / 14%) 44%
-  );
-}
-
-.play-text h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.rating {
-  display: flex;
-  align-items: center;
-  column-gap: 2px;
-  font-size: 1.1rem;
-  color: var(--main-color);
-  margin-top: 4px;
-}
-
-.tags {
-  display: flex;
-  align-items: center;
-  column-gap: 8px;
-  margin: 1rem 0;
-}
-
-.tags span {
-  background: var(--container-color);
-  padding: 0 4px;
-}
-
-.play-movie {
-  position: absolute;
-  bottom: 18rem;
-  right: 10rem;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: var(--main-color);
-  font-size: 24px;
-  animation: animate 2s linear infinite;
-}
-
-@keyframes animate {
-  0% {
-    box-shadow: 0 0 0 0 rgb(255, 180, 58, 0.7);
-  }
-  40% {
-    box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
-  }
-  80% {
-    box-shadow: 0 0 0 50px rgb(255, 193, 7, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 rgb(255, 193, 7, 0);
-  }
-}
-/* VIdeo */
-.video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  background: hsl(234 10% 20% / 60%);
-  z-index: 400;
-}
-.video-container.show-video {
-  display: flex;
-}
-.video-box {
-  position: relative;
-  width: 82%;
-}
-
-.video-box #MyVideo {
-  width: 100%;
-  aspect-ratio: 16/9;
-}
-
-.close-video {
-  position: absolute;
-  top: -3rem;
-  right: 0;
-  font-size: 40px;
-  color: var(--main-color);
-}
-
 .about-movie {
   margin-top: 2rem !important;
+  padding-top: 1rem;
 }
 
 .about-movie h2 {
@@ -181,9 +67,18 @@ img {
   max-width: 800px;
   width: 100%;
   margin: auto;
-  display: grid;
+  display: flex;
+  align-items: center;
   justify-content: center;
   margin-top: 2rem;
+}
+
+.comprar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Cambia la posición a relativa */
+  z-index: -1; /* Establece un índice de apilamiento negativo */
 }
 
 .funciones-title {
@@ -212,6 +107,108 @@ img {
 
 .funciones-links a:hover {
   background: var(--hover-color);
+}
+
+.sala {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  margin: 0;
+  perspective: 1000px;
+  margin-bottom: 30px;
+  padding-top: 250px;
+  position: relative; /* Agrega posición relativa */
+  z-index: 1; /* Asegura que los asientos estén por encima del div de comprar */
+}
+
+.asiento {
+  color: var(--main-color);
+  font-size: 25px;
+  height: 40px;
+  width: 40px;
+  margin: 3px;
+}
+
+.asiento.seleccionado {
+  color: lightblue;
+}
+
+.asiento.vendido {
+  cursor: default;
+  color: red;
+}
+
+.asiento:nth-of-type(2) {
+  margin-right: 20px;
+}
+
+.asiento:nth-last-of-type(2) {
+  margin-left: 20px;
+}
+
+.asiento:not(.vendido):hover {
+  color: greenyellow;
+  transform: scale(1.2);
+}
+
+.bx-spin-hover {
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+}
+
+.bx-tada-hover {
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+}
+
+.bx-burst-hover {
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+}
+
+.leyenda-asientos .bx {
+  cursor: default;
+  transform: scale(1);
+}
+
+.leyenda-asientos {
+  padding: 5px 10px;
+  border-radius: 5px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leyenda-asientos li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.leyenda-asientos li small {
+  margin-left: 2px;
+}
+
+.screen {
+  cursor: default;
+  font-size: 100px;
+  margin: 10px 0;
+  transform: rotateX(-48deg);
+  text-shadow: 0 10px 15px rgba(255, 255, 255, 0.7);
+}
+
+.asientos {
+  transform: rotateX(48deg);
 }
 
 /* Responsive */

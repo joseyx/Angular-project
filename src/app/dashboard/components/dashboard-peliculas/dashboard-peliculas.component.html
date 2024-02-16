@@ -17,6 +17,7 @@
             <th class="d-none d-sm-table-cell">ID</th>
             <th class="d-none d-sm-table-cell">Titulo</th>
             <th class="d-none d-sm-table-cell">Genero</th>
+            <th class="d-none d-sm-table-cell">Duracion</th>
             <th class="d-none d-sm-table-cell">Fecha de Estreno</th>
             <th class="d-none d-sm-table-cell">Acciones</th>
           </tr>
@@ -47,6 +48,12 @@
               (click)="goToPelicula(pelicula.id)"
             >
               {{ pelicula.fecha_estreno }}
+            </td>
+            <td
+              class="d-none d-sm-table-cell"
+              (click)="goToPelicula(pelicula.id)"
+            >
+              {{ pelicula.duracion }}
             </td>
             <td class="d-none d-sm-table-cell">
               <button
