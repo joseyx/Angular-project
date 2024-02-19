@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
-import { TestComponent } from '../../nav/test.component';
+import { TestComponent } from '../../nav/home.component';
 
 import { AuthService } from '../../services/auth.service';
 

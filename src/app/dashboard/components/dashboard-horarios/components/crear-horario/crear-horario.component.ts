@@ -77,7 +77,7 @@ export class CrearHorarioComponent {
 
       const response = await this.dashboardService.createHorario(data);
 
-      if (response.status === 201) {
+      if (response.message == 'Horario creado') {
         this.router.navigate(['/dashboard/horarios']);
       }
     } catch (error) {}

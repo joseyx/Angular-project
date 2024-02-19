@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TestComponent } from '../nav/test.component';
+import { TestComponent } from '../nav/home.component';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../services/dashboard.service';

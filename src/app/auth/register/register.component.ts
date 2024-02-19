@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
-import { TestComponent } from '../../nav/test.component';
+import { TestComponent } from '../../nav/home.component';
 
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';

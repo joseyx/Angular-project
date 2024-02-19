@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 
-import { TestComponent } from '../../nav/test.component';
+import { TestComponent } from '../../nav/home.component';
 import { AuthService } from '../../services/auth.service';
 
 interface response {

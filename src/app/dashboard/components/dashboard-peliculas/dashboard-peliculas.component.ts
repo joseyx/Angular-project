@@ -7,7 +7,7 @@ interface Pelicula {
   nombre: string;
   sinopsis: string;
   fecha_estreno: Date;
-  Genero: string;
+  genero: string;
   poster: string;
   color_texto: string;
   color_fondo: string;

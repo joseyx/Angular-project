@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
-import { TestComponent } from '../nav/test.component';
+import { TestComponent } from '../nav/home.component';
 import {
   ActivatedRoute,
   Router,
