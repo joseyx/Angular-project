@@ -89,6 +89,7 @@ export class ReservaAsientosComponent {
   }
 
   selectedIcons: string[] = [];
+  
   toggleState(icon: any) {
     if (icon.state === 'disponible') {
       if (this.selectedIcons.length >= this.cantidad) {

@@ -73,3 +73,4 @@ export class VistaPeliculaComponent {
     this.router.navigate([`pelicula/horario/reserva/${id}`]);
   }
 }
+  
