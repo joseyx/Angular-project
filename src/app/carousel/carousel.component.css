@@ -94,6 +94,13 @@ section {
   font-weight: 500;
 }
 
+.trailer-box {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
 /* Movie BOx */
 .movie-box {
   position: relative;

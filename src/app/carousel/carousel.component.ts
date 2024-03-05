@@ -23,6 +23,12 @@ interface Pelicula {
   color_extra2: string;
 }
 
+interface trailer {
+  id: string;
+  title: string;
+  link: string;
+}
+
 @Component({
   selector: 'app-carousel',
   standalone: true,
@@ -34,6 +40,7 @@ interface Pelicula {
 export class CarouselComponent {
   peliculas: Pelicula[] = [];
   pelicula: Pelicula;
+  trailers: trailer[] = [];
 
   constructor(
     private router: Router,
@@ -57,6 +64,8 @@ export class CarouselComponent {
   async ngOnInit() {
     const response = await this.dashboardService.getPeliculas();
     this.peliculas = response.peliculas;
+    const response2 = await this.dashboardService.getTrailers();
+    this.trailers = response2.trailers;
   }
 
   goToPelicula(id: string) {

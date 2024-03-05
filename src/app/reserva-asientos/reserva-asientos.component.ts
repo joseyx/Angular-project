@@ -9,6 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { DashboardService } from '../services/dashboard.service';
 import { LocalService } from '../services/localstorage.service';
+import { AuthService } from '../services/auth.service';
 
 interface Horario {
   id: number;
@@ -31,6 +32,16 @@ interface Horario {
     filas: number;
     asientos_por_fila: number;
   };
+}
+
+interface User {
+  id: string;
+  nombre: string;
+  apellido: string;
+  email: string;
+  telefono: string;
+  password: string;
+  rol: string;
 }
 
 @Component({
@@ -70,14 +81,31 @@ export class ReservaAsientosComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   private id = this.route.snapshot.params['id'] ?? null;
 
+  user: User = {
+    id: '',
+    nombre: '',
+    apellido: '',
+    email: '',
+    telefono: '',
+    password: '',
+    rol: '',
+  };
+
   private cantidad: number = 0;
   constructor(
     private dashboardService: DashboardService,
     private localService: LocalService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private authService: AuthService
+  ) {
+    if (!this.authService.isUserLoggedIn()) {
+      this.router.navigate(['/']);
+    }
+  }
 
   async ngOnInit() {
+    const response = await this.authService.getUser();
+    this.user = response;
     await this.dashboardService.getHorario(this.id).then((data) => {
       this.horario = data.horario;
     });
@@ -89,7 +117,7 @@ export class ReservaAsientosComponent {
   }
 
   selectedIcons: string[] = [];
-  
+
   toggleState(icon: any) {
     if (icon.state === 'disponible') {
       if (this.selectedIcons.length >= this.cantidad) {
@@ -124,12 +152,15 @@ export class ReservaAsientosComponent {
       console.log(this.selectedIcons);
       const response = await this.dashboardService.changeAsientosDisponible(
         this.selectedIcons,
-        this.horario.id.toString()
+        this.horario.id.toString(),
+        this.user.id.toString()
       );
       if (response.message == 'Asientos comprados') {
         console.log('test');
         this.router.navigate(['/']);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   }
 }

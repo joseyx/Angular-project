@@ -22,6 +22,8 @@ import { ReservaAsientosComponent } from './reserva-asientos/reserva-asientos.co
 import { DashboardHorariosComponent } from './dashboard/components/dashboard-horarios/dashboard-horarios.component';
 import { CrearHorarioComponent } from './dashboard/components/dashboard-horarios/components/crear-horario/crear-horario.component';
 import { CantidadAsientosComponent } from './cantidad-asientos/cantidad-asientos.component';
+import { DashboardTrailersComponent } from './dashboard/components/dashboard-trailers/dashboard-trailers.component';
+import { CreateTrailerComponent } from './dashboard/components/dashboard-trailers/components/create-trailer/create-trailer.component';
 
 export const routes: Routes = [
   {
@@ -119,6 +121,14 @@ export const routes: Routes = [
       {
         path: 'horarios/create',
         component: CrearHorarioComponent,
+      },
+      {
+        path: 'trailers',
+        component: DashboardTrailersComponent,
+      },
+      {
+        path: 'trailers/create',
+        component: CreateTrailerComponent,
       },
     ],
   },

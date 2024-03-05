@@ -1,0 +1,36 @@
+<div class="card mb-3 w-50">
+  <div class="card-header">
+    <h5 class="card-title mb-0">Registrar trailer</h5>
+  </div>
+  <div class="card-body">
+    <form (submit)="submitCreate()">
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Nombre de la pelicula</label
+        >
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="trailer.title"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"
+          >Link del trailer</label
+        >
+        <input
+          type="text"
+          name="name"
+          [(ngModel)]="trailer.link"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Registrar trailer</button>
+    </form>
+  </div>
+  <hr class="my-0" />
+</div>

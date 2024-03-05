@@ -92,14 +92,35 @@ export class DashboardService {
     return response.data;
   }
 
-  async changeAsientosDisponible(asientos: string[], id: string) {
+  async changeAsientosDisponible(
+    asientos: string[],
+    id: string,
+    userId: string
+  ) {
     const data = {
       asientos: asientos,
+      userId: userId,
     };
+    console.log('Data', data);
     const response = await this.axiosService.post(
       `dashboard/entrada/${id}`,
       data
     );
+    return response.data;
+  }
+
+  async getTrailers() {
+    const response = await this.axiosService.get('dashboard/trailers');
+    return response.data;
+  }
+
+  async createTrailer(data: any) {
+    const response = await this.axiosService.post(`dashboard/trailer`, data);
+    return response.data;
+  }
+
+  async deleteTrailer(id: string) {
+    const response = await this.axiosService.delete(`dashboard/trailer/${id}`);
     return response.data;
   }
 }

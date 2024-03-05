@@ -1,0 +1,49 @@
+<h1 class="h3 mb-3"><strong>Trailers</strong> Registrados</h1>
+
+<div class="row">
+  <div class="col-12 col-lg-8 col-xl-9 d-sm-flex">
+    <div class="card flex-fill">
+      <div class="card-header">
+        <div class="button-container">
+          <a class="btn btn-primary" [routerLink]="['create']">
+            Agregar Trailer
+          </a>
+          <span class="button-spacing"></span>
+        </div>
+      </div>
+      <table class="table table-hover my-0">
+        <thead>
+          <tr>
+            <th class="d-none d-sm-table-cell">ID</th>
+            <th class="d-none d-sm-table-cell">Titulo</th>
+            <th class="d-none d-sm-table-cell">Link</th>
+            <th class="d-none d-sm-table-cell">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (trailer of trailers; track trailer.id) {
+          <tr>
+            <td class="d-none d-sm-table-cell">
+              {{ trailer.id }}
+            </td>
+            <td class="d-none d-sm-table-cell">
+              {{ trailer.title }}
+            </td>
+            <td class="d-none d-sm-table-cell">
+              {{ trailer.link }}
+            </td>
+            <td class="d-none d-sm-table-cell">
+              <button
+                class="btn btn-danger"
+                (click)="deleteTrailer(trailer.id)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

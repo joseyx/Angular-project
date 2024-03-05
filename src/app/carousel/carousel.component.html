@@ -11,10 +11,6 @@
   <div class="home-text">
     <h1 class="home-title">Las mejores peliculas</h1>
     <p></p>
-    <!-- <a href="#" class="comprar-btn">
-      <i class="bx bx-credit-card"></i>
-      <span>Comprar Entrada</span>
-    </a> -->
   </div>
 </section>
 
@@ -52,40 +48,68 @@
     </swiper-slide>
     }
   </swiper-container>
+</section>
 
-  <!--<div class="peliculas-content swiper">
-    <div class="swiper-wrapper">
-
-
-      <div class="swiper-slide">
-        <div class="movie-box">
-          <img [src]="peliculas[0].poster" alt="" class="movie-box-img" />
-          <div class="box-text">
-            <h2 class="movie-title">
-              {{ peliculas[0].nombre }}
-            </h2>
-            <span class="movie-type">{{ peliculas[0].Genero }}</span>
-            <a href="#" class="comprar-btn reservar-btn">
-              <i class="bx bx-credit-card"></i>
-            </a>
-          </div>
-        </div>
+<!-- Trailers -->
+<section class="peliculas containerr" id="peliculas">
+  <!-- Trailers header -->
+  <div class="heading">
+    <h2 class="heading-title">Trailers</h2>
+  </div>
+  <!-- Trailers content -->
+  <swiper-container
+    class="peliculas-content"
+    space-between="20"
+    autoplay="false"
+    slides-per-view="1"
+    navigation="true"
+    scrollbar="true"
+    pagination="true"
+  >
+    @for (trailer of trailers; track trailer.id) {
+    <swiper-slide>
+      <div class="trailer-box" (click)="goToPelicula(pelicula.id)">
+        <iframe
+          width="1050"
+          height="600"
+          src="https://www.youtube.com/embed/M8W_y0mmJEc?si=16UJ_qvpjMrqD1Vq"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</section>
 
-      <div class="swiper-slide">
-        <div class="movie-box">
-          <img [src]="peliculas[0].poster" alt="" class="movie-box-img" />
-          <div class="box-text">
-            <h2 class="movie-title">
-              {{ peliculas[0].nombre }}
-            </h2>
-            <span class="movie-type">{{ peliculas[0].Genero }}</span>
-            <a href="#" class="comprar-btn reservar-btn">
-              <i class="bx bx-credit-card"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
+<!-- Maps -->
+<section class="peliculas containerr" id="peliculas">
+  <!-- Map header -->
+  <div class="heading">
+    <h2 class="heading-title">Ubicacion</h2>
+  </div>
+  <!-- Map content -->
+  <swiper-container
+    class="peliculas-content"
+    space-between="20"
+    autoplay="false"
+    slides-per-view="1"
+    navigation="true"
+    scrollbar="true"
+    pagination="true"
+  >
+    <swiper-slide>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d728.3072228326785!2d-67.96272012163797!3d10.236433966129912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e805d284797b2c9%3A0x792aeec9324d3695!2sUniversidad%20Jos%C3%A9%20Antonio%20P%C3%A1ez!5e0!3m2!1ses-419!2sve!4v1709493883863!5m2!1ses-419!2sve"
+        width="1200"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </swiper-slide>
+  </swiper-container>
 </section>
